@@ -16,3 +16,24 @@ img {
   display: block;
   max-width: 100%;
 }
+.timer {
+  display: flex;
+}
+.value {
+  display: block;
+  text-align: center;
+}
+.field:not(:last-child) {
+  margin-right: 20px;
+}
+.value, .label {
+  text-transform: uppercase;
+}
+input[type="text"] {
+  width: 245px;
+  height: 30px;
+  margin-bottom: 20px;
+}
+button[type="button"] {
+  height: 30px;
+}
