@@ -10,7 +10,7 @@ const secEl = document.querySelector('[data-seconds]');
 const datePicker = document.querySelector('#datetime-picker')
 
 btnEl.disabled = true;
-
+let userTime;
 const options = {
     enableTime: true,
     time_24hr: true,
@@ -22,7 +22,9 @@ const options = {
         window.alert("Please choose a date in the future!");
         } else
         btnEl.disabled = false;
+        datePicker.disabled = true;
       console.log(selectedDates[0]);
+      userTime = selectedDates[0];
     },
   };
 
@@ -49,6 +51,7 @@ function counter () {
         minEl.textContent = addLeadingZero(conversion.minutes);
         secEl.textContent = addLeadingZero(conversion.seconds);
     } else {
+      datePicker.disabled = false;
         window.alert("It's time!!!");
         clearInterval(timerId);
     }
