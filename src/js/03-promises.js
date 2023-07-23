@@ -23,14 +23,18 @@ function onSubmit(event) {
     let amount = Number(formEl.elements.amount.value);
 
   for(let i = 1; i <= amount; i += 1) {
-
-    createPromise(i + 1, i * delay + step)
+if (step < 0 || delay < 0 || amount <= 0) {
+  Notiflix.Notify.failure(`Invalid value`);
+} else {
+  createPromise(i, delay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
-
+delay += step;
+}
+    
   }
 }
